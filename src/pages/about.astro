@@ -1,3 +1,23 @@
+---
+const pageTitle = "About Miguel";
+
+const aboutMe = {
+  name: "Miguel",
+  age: 25,
+  location: "Medellín, Colombia",
+  interests: [
+    "programming",
+    "clean code",
+    "web development",
+    "violin and strings",
+  ],
+};
+
+const imHappy = true
+const astroIsHard = false
+
+const skills = ["HTML", "CSS", "TypeScript", "React.js"];
+---
 
 <html lang="en">
   <head>
@@ -5,14 +25,39 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/blog">Blog</a>
 
-    <h1>About Miguel</h1>
+    <h1>{pageTitle}</h1>
     <h2>And my learning astro journey :D</h2>
+
+    <div>
+      <h2>Now a bit about me:</h2>
+      <p>
+        Currently i'm {aboutMe.age}.
+        <br>
+        I really enjoy {aboutMe.interests.map((interest) => interest + ", ")}
+        <br>
+        I am a web developer living really close to {aboutMe.location}
+      </p>
+    </div>
+
+    <div>
+      <h3>This is my first loop rendering, so these are some of the technologies I enjoy working with:</h3>
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+
+    <p>So, I really need to tell you all that I'm really {imHappy ? "Happy" : "Sad"}</p>
+    {!astroIsHard && 
+      <p>
+        Astro is really easy!  
+      </p>
+    }
   </body>
 </html>
